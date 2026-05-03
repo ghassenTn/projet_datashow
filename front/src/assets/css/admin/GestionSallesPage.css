@@ -1,0 +1,356 @@
+/* ===== Gestion Salles — Admin Page (Style Aligné sur Parc) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+/* ── Layout ── */
+.gsa-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  background: #f4f6fb;
+}
+
+.gsa-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* ── Top Bar ── */
+.gsa-topbar {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.topbar-search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 380px;
+}
+
+.topbar-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  display: flex;
+  pointer-events: none;
+}
+
+.topbar-search {
+  width: 100%;
+  padding: 0.6rem 1rem 0.6rem 2.4rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #374151;
+  background: #f9fafb;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.topbar-search:focus {
+  border-color: #1a2b6d;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(26,43,109,0.08);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.topbar-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition: border-color 0.2s, color 0.2s;
+  position: relative;
+}
+
+.topbar-icon-btn:hover { border-color: #1a2b6d; color: #1a2b6d; }
+
+/* ── Main ── */
+.gsa-main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  min-height: 0;
+}
+
+/* Breadcrumb */
+.gsa-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+.gsa-breadcrumb .crumb-active { color: #1a2b6d; font-weight: 600; }
+.gsa-breadcrumb svg { width: 12px; height: 12px; }
+
+/* Header */
+.gsa-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.gsa-page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 0.35rem;
+}
+
+.gsa-page-subtitle {
+  font-size: 0.87rem;
+  color: #6b7280;
+  max-width: 520px;
+  line-height: 1.5;
+}
+
+.btn-add-salle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.78rem 1.4rem;
+  background: #1a2b6d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.btn-add-salle:hover {
+  background: #142260;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(26,43,109,0.35);
+}
+
+/* ── Table Card ── */
+.gsa-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.gsa-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.gsa-table-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 6px 20px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+.gsa-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gsa-table thead tr {
+  background: #f8f9fb;
+  border-bottom: 1.5px solid #e5e7eb;
+}
+
+.gsa-table thead th {
+  padding: 0.85rem 1.1rem;
+  text-align: left;
+  font-size: 0.67rem;
+  font-weight: 700;
+  color: #9ca3af;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gsa-table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background 0.15s;
+}
+
+.gsa-table tbody tr:hover { background: #f9fbff; }
+
+.gsa-table td {
+  padding: 0.9rem 1.1rem;
+  font-size: 0.88rem;
+  color: #374151;
+  vertical-align: middle;
+}
+
+/* Salle cell */
+.salle-id-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.salle-icon-box {
+  width: 32px;
+  height: 32px;
+  background: #f0f4ff;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a2b6d;
+  flex-shrink: 0;
+}
+
+.salle-id-text {
+  color: #111827;
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+/* Equipment badges */
+.equip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+  border: 1px solid;
+}
+
+.equip-badge.yes { background: #f0fdf4; color: #16a34a; border-color: #bbf7d0; }
+.equip-badge.no  { background: #fef2f2; color: #dc2626; border-color: #fecaca; }
+
+/* Actions */
+.btn-table-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  transition: all 0.2s;
+}
+
+.btn-table-icon:hover { border-color: #ef4444; color: #ef4444; }
+
+/* Modal */
+.gsa-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.gsa-modal {
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.gsa-modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.gsa-modal-form { display: flex; flex-direction: column; gap: 1rem; }
+.gsa-modal-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.gsa-modal-label { font-size: 0.78rem; font-weight: 600; color: #374151; }
+
+.gsa-modal-input {
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  color: #374151;
+  background: #fafafa;
+  outline: none;
+}
+
+.gsa-modal-input:focus { border-color: #1a2b6d; background: #fff; box-shadow: 0 0 0 3px rgba(26,43,109,0.1); }
+
+.modal-check-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-check-wrap:hover { background: #f3f4f6; border-color: #d1d5db; }
+
+.modal-check-input { width: 17px; height: 17px; cursor: pointer; }
+.modal-check-label { font-size: 0.85rem; font-weight: 500; color: #374151; cursor: pointer; }
+
+.gsa-modal-btns { display: flex; gap: 0.8rem; margin-top: 0.5rem; }
+
+.btn-modal-submit {
+  flex: 1; padding: 0.78rem; background: #1a2b6d; color: #fff; border: none; border-radius: 8px;
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer;
+}
+
+.btn-modal-cancel {
+  flex: 1; padding: 0.78rem; background: transparent; color: #6b7280; border: 1.5px solid #e5e7eb;
+  border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer;
+}
+
+/* Toast */
+.gsa-toast {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; background: #111827; color: #fff;
+  padding: 0.85rem 1.2rem; border-radius: 10px; font-size: 0.85rem; font-weight: 500;
+  display: flex; align-items: center; gap: 0.6rem; z-index: 10000;
+}

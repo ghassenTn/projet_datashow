@@ -1,0 +1,157 @@
+/* ===== Gestion Réparations — Admin Page (Style Aligné) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+/* ── Layout ── */
+.grp-page {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  background: #f4f6fb;
+}
+
+.grp-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* ── Top Bar ── */
+.grp-topbar {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.topbar-search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 380px;
+}
+
+.topbar-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  display: flex;
+  pointer-events: none;
+}
+
+.topbar-search {
+  width: 100%;
+  padding: 0.6rem 1rem 0.6rem 2.4rem;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #374151;
+  background: #f9fafb;
+  outline: none;
+}
+
+.topbar-search:focus { border-color: #1a2b6d; background: #fff; box-shadow: 0 0 0 3px rgba(26,43,109,0.08); }
+
+.topbar-icon-btn {
+  width: 36px; height: 36px; border-radius: 8px; border: 1.5px solid #e5e7eb;
+  background: #fff; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; color: #6b7280; position: relative;
+}
+
+/* ── Main ── */
+.grp-main {
+  flex: 1; overflow-y: auto; padding: 2rem 2rem 3rem;
+  display: flex; flex-direction: column; gap: 1.8rem;
+}
+
+.grp-breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; color: #9ca3af; }
+.grp-breadcrumb .crumb-active { color: #1a2b6d; font-weight: 600; }
+.grp-breadcrumb svg { width: 12px; height: 12px; }
+
+.grp-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.grp-page-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 800; color: #111827; margin-bottom: 0.35rem; }
+.grp-page-subtitle { font-size: 0.87rem; color: #6b7280; max-width: 520px; line-height: 1.5; }
+
+.btn-add-rep {
+  display: flex; align-items: center; gap: 0.5rem; padding: 0.78rem 1.4rem;
+  background: #1a2b6d; color: #fff; border: none; border-radius: 8px;
+  font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+}
+
+.btn-add-rep:hover { background: #142260; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(26,43,109,0.35); }
+
+/* ── Table Card ── */
+.grp-section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.grp-section-title { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: #111827; }
+
+.grp-clear-filter {
+  padding: 0.45rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1a2b6d;
+  background: #fff;
+  border: 1.5px solid #1a2b6d;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.grp-clear-filter:hover {
+  background: #1a2b6d;
+  color: #fff;
+}
+
+.grp-table-card { background: #fff; border-radius: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 6px 20px rgba(0,0,0,0.07); overflow: hidden; }
+.grp-table { width: 100%; border-collapse: collapse; }
+.grp-table thead tr { background: #f8f9fb; border-bottom: 1.5px solid #e5e7eb; }
+.grp-table thead th { padding: 0.85rem 1.1rem; text-align: left; font-size: 0.67rem; font-weight: 700; color: #9ca3af; letter-spacing: 0.12em; text-transform: uppercase; }
+.grp-table tbody tr { border-bottom: 1px solid #f3f4f6; transition: background 0.15s; }
+.grp-table tbody tr:hover { background: #f9fbff; }
+.grp-table td { padding: 0.9rem 1.1rem; font-size: 0.88rem; color: #374151; vertical-align: middle; }
+
+/* Cell elements */
+.rep-id-cell { display: flex; align-items: center; gap: 0.7rem; }
+.rep-icon-box { width: 32px; height: 32px; background: #fef2f2; border-radius: 7px; display: flex; align-items: center; justify-content: center; color: #dc2626; flex-shrink: 0; }
+.rep-device-text { color: #1a2b6d; font-weight: 700; font-size: 0.88rem; }
+
+.rep-desc-text { font-size: 0.85rem; color: #4b5563; line-height: 1.4; max-width: 300px; }
+.rep-action-text { font-size: 0.85rem; color: #059669; font-weight: 600; display: flex; align-items: center; gap: 0.3rem; }
+
+.rep-date-text { font-family: 'monospace'; font-size: 0.85rem; color: #6b7280; }
+
+/* Action buttons */
+.btn-table-icon {
+  width: 30px; height: 30px; border-radius: 6px; border: 1.5px solid #e5e7eb;
+  background: #fff; cursor: pointer; display: flex; align-items: center;
+  justify-content: center; color: #6b7280; transition: all 0.2s;
+}
+.btn-table-icon:hover { border-color: #ef4444; color: #ef4444; }
+
+/* Modal */
+.grp-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 1rem; }
+.grp-modal { background: #fff; border-radius: 14px; padding: 2rem; width: 100%; max-width: 480px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+.grp-modal-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 800; color: #111827; margin-bottom: 1.5rem; }
+.grp-modal-form { display: flex; flex-direction: column; gap: 1rem; }
+.grp-modal-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.grp-modal-label { font-size: 0.78rem; font-weight: 600; color: #374151; }
+.grp-modal-input, .grp-modal-select, .grp-modal-textarea { padding: 0.7rem 0.9rem; border: 1.5px solid #e5e7eb; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.88rem; color: #374151; background: #fafafa; outline: none; }
+.grp-modal-textarea { resize: vertical; min-height: 80px; }
+.grp-modal-input:focus, .grp-modal-select:focus, .grp-modal-textarea:focus { border-color: #1a2b6d; box-shadow: 0 0 0 3px rgba(26,43,109,0.1); background: #fff; }
+.grp-modal-btns { display: flex; gap: 0.8rem; margin-top: 0.5rem; }
+.btn-modal-submit { flex: 1; padding: 0.78rem; background: #1a2b6d; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+.btn-modal-cancel { flex: 1; padding: 0.78rem; background: transparent; color: #6b7280; border: 1.5px solid #e5e7eb; border-radius: 8px; font-weight: 500; cursor: pointer; }
+
+/* Toast */
+.grp-toast { position: fixed; bottom: 1.5rem; right: 1.5rem; background: #111827; color: #fff; padding: 0.85rem 1.2rem; border-radius: 10px; display: flex; align-items: center; gap: 0.6rem; z-index: 10000; }
