@@ -248,6 +248,9 @@ def get_reclamation(db: Session, reclamation_id: int):
 def get_reclamations(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Reclamation).offset(skip).limit(limit).all()
 
+def get_reclamations_by_professeur(db: Session, professeur_id: int, skip: int = 0, limit: int = 100):
+    return db.query(models.Reclamation).filter(models.Reclamation.professeur_id == professeur_id).offset(skip).limit(limit).all()
+
 def create_reclamation(db: Session, reclamation: schemas.ReclamationCreate, professeur_id: int):
     db_reclamation = models.Reclamation(**reclamation.model_dump(), professeur_id=professeur_id)
     db.add(db_reclamation)

@@ -12,8 +12,10 @@ def create_reclamation(reclamation: schemas.ReclamationCreate, db: Session = Dep
     return crud.create_reclamation(db, reclamation, professeur_id=user.id)
 
 @router.get("/", response_model=List[schemas.ReclamationResponse])
-def read_reclamations(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), admin = Depends(get_current_admin_user)):
-    return crud.get_reclamations(db, skip=skip, limit=limit)
+def read_reclamations(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), user: models.Utilisateur = Depends(get_current_user)):
+    if user.role == models.RoleUtilisateur.ADMIN:
+        return crud.get_reclamations(db, skip=skip, limit=limit)
+    return crud.get_reclamations_by_professeur(db, professeur_id=user.id, skip=skip, limit=limit)
 
 @router.put("/{reclamation_id}/traiter", response_model=schemas.ReclamationResponse)
 def traiter_reclamation(reclamation_id: int, reponse: str, db: Session = Depends(get_db), admin = Depends(get_current_admin_user)):
